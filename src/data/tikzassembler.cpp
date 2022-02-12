@@ -31,6 +31,9 @@ TikzAssembler::TikzAssembler(Graph *graph, QObject *parent) :
     yyset_extra(this, scanner);
     _currentEdgeData = nullptr;
     _currentPath = nullptr;
+
+    codec = QTextCodec::codecForName( "Windows-1251" );
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("Windows-1251"));
 }
 
 TikzAssembler::TikzAssembler(TikzStyles *tikzStyles, QObject *parent) :
@@ -47,7 +50,8 @@ Node *TikzAssembler::nodeWithName(QString name) { return _nodeMap[name]; }
 
 bool TikzAssembler::parse(const QString &tikz)
 {
-    yy_scan_string(tikz.toLatin1().data(), scanner);
+    //yy_scan_string(tikz.toLatin1().data(), scanner);
+    yy_scan_string(tikz.toUtf8().data(), scanner);
     int result = yyparse(scanner);
 
     if (result == 0) return true;

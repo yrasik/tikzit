@@ -64,11 +64,11 @@ void PreviewWindow::contextMenuEvent(QContextMenuEvent *event)
     QMenu menu(this);
     QAction *act;
 
-    act = new QAction("Export Image...");
+    act = new QAction("Export Image...", this);
     connect(act, SIGNAL(triggered()), this, SLOT(exportImage()));
     menu.addAction(act);
 
-    act = new QAction("Copy to Clipboard");
+    act = new QAction("Copy to Clipboard", this);
     connect(act, SIGNAL(triggered()), this, SLOT(copyImageToClipboard()));
     menu.addAction(act);
 

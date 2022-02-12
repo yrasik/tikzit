@@ -28,6 +28,7 @@
 
 #include <QObject>
 #include <QHash>
+#include <QTextCodec>
 
 class TikzAssembler : public QObject
 {
@@ -58,6 +59,8 @@ public:
 
     void addEdge(Edge *e);
     void finishCurrentPath();
+
+    QTextCodec          *codec;
 
 signals:
 
