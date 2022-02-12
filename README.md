@@ -3,6 +3,25 @@
 
 TikZiT is a graphical tool for rapidly creating graphs and string diagrams using PGF/TikZ. It was used, for example, to make all of the 2500+ diagrams in <a href="http://cambridge.org/pqp">this book</a>.
 
+## TikZiT & CP1251
+В оригинальном tikzit не работала русская локализация (да и всякая другая). 
+Т.е. русские label отображались, сохранялись. Но при открытии файла вместо русских букв были вопросики... 
+
+Немножко докрутил и собрал под QT 5.6.3.Теперь вроде норм...
+
+Вообще проект замечателен тем, что и его родные файлы - формата LaTeX.
+Т.е. Нарисовали картинку (теперь с русскими надписями), сохранили в .tex - 
+файле (или вообще можно вставить код внутрь самого документа...). Затем
+понадобилось подправит картинку (через два года, к примеру): открыли .tex - файл нашей программой и подправили. Если картинка находилась внутри .tex - документа - скопировали соответствующие строчки, создали из них файл с расширением .tex и скормили нашей программе.
+
+Это находка просто при создании, скажем Verilog - ядер устройств, где в
+комментариях я располагаю LaTeX - описание модуля с таблицами, формулами
+а теперь и с рисунками, благодаря TikZiT !!
+
+Отмечу, что подход, связанный с Doxygen не оправдал моих ожиданий. Для
+меня монолитный .pdf - документ, свёрстанный в LaTeX гораздо лучше, чем целая папка с кучей .html - файлов в случае Doxygen.
+
+
 ## Building on Windows
 
 TiKZiT can be built in Windows using Qt Creator (part of <a href="http://doc.qt.io/qt-5/windows-support.html">Qt for Windows</a>) or from the command line. In either case, it is recommended you compile with <a href="http://www.mingw.org/">mingw32</a>, which is included in the official Qt distribution. There is no reason, in principle, that you couldn't use mingw64 or MSVC, but these haven't been tested.
